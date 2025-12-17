@@ -3,8 +3,8 @@ fit.tReeboot <- function(obj, num_var = c("1", "2"),
                          fit_type = c("decision.tree", "logistic.reg", "random.forest", "lm"),
                          consider_first = TRUE) {
 
-  if(!inherits(obj, "tReeboot"))
-    stop("This function only works on objects of class \"tReeboot\"")
+  if(!inherits(obj, "heart"))
+    stop("This function only works on objects of class \"heart\"")
 
   # choosing the type of fitting model
   fit_type = match.arg(fit_type)
