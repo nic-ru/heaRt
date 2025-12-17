@@ -65,7 +65,7 @@ fit.tReeboot <- function(obj, num_var = c("1", "2"),
                     data |> glm(y ~ var2, family = binomial(link = "logit"), data = _)
                   },
                   random.forest = {
-                    data |> randomForest::randomForest(y ~ var2, data = _)
+                    data |> randomForest::randomForest(y ~ var2,data = _)
                   },
                   lm = {
                     data |> lm(y ~ var2, data = _)
@@ -78,7 +78,14 @@ fit.tReeboot <- function(obj, num_var = c("1", "2"),
                  data = data,
                  fit_type = fit_type)
   attr(output, "source") <- attr(obj, "source")
-  class(output) <- c("heaRt_fit", "listof")
+  class(output) <- c("heaRt_fit","listof")
+
+  if(fit_type == "decision.tree")
+    class(output) <- c("heaRt_fit", "rpart", "listof")
+
+  if(fit_type == "random.forest")
+    class(output) <- c("heaRt_fit", "randomForest", "listof")
+
   invisible(output)
 
 }
