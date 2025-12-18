@@ -22,6 +22,9 @@ fit.tReeboot <- function(obj, num_var = c("1", "2"),
                  "2" = {
                    data.frame(y = y, var1 = var1, var2 = var2)})
 
+  if(consider_first == FALSE)
+    data <- data |> dplyr::select(y, var2)
+
 
   # fitting the model
 
