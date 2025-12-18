@@ -31,6 +31,7 @@
 #' @importFrom dplyr "select" "rename"
 #' @importFrom rpart "rpart"
 #' @importFrom randomForest "randomForest"
+#' @importFrom stats "lm" "glm"
 #'
 #' @examples
 #' dat <- load_heaRt(vars = "rbp-restECG")
@@ -70,7 +71,7 @@ fit.tReeboot <- function(obj, num_var = c("1", "2"),
   if(num_var == "1")
     mod <- switch(fit_type,
                   decision.tree = {
-                    data |> rpart::rpart(y ~ var1, data = _)
+                    data |> stats::rpart::rpart(y ~ var1, data = _)
                   },
                   logostic.reg = {
                     data |> glm(y ~ var1, family = binomial(link = "logit"), data = _)
@@ -79,7 +80,7 @@ fit.tReeboot <- function(obj, num_var = c("1", "2"),
                     data |> randomForest::randomForest(y ~ var1, data = _)
                   },
                   lm = {
-                    data |> lm(y ~ var1, data = _)
+                    data |> stats::lm(y ~ var1, data = _)
                   })
 
   if(num_var == "2" & consider_first == TRUE)
@@ -88,13 +89,13 @@ fit.tReeboot <- function(obj, num_var = c("1", "2"),
                     data |> rpart::rpart(y ~ var1 + var2, data = _)
                   },
                   logostic.reg = {
-                    data |> glm(y ~ var1 + var2, family = binomial(link = "logit"), data = _)
+                    data |> stats::glm(y ~ var1 + var2, family = binomial(link = "logit"), data = _)
                   },
                   random.forest = {
                     data |> randomForest::randomForest(y ~ var1 + var2, data = _)
                   },
                   lm = {
-                    data |> lm(y ~ var1 + var2, data = _)
+                    data |> stats::lm(y ~ var1 + var2, data = _)
                   })
 
   if(num_var == "2" & consider_first == FALSE)
@@ -103,13 +104,13 @@ fit.tReeboot <- function(obj, num_var = c("1", "2"),
                     data |> rpart::rpart(y ~ var2, data = _)
                   },
                   logostic.reg = {
-                    data |> glm(y ~ var2, family = binomial(link = "logit"), data = _)
+                    data |> stats::glm(y ~ var2, family = binomial(link = "logit"), data = _)
                   },
                   random.forest = {
                     data |> randomForest::randomForest(y ~ var2,data = _)
                   },
                   lm = {
-                    data |> lm(y ~ var2, data = _)
+                    data |> stats::lm(y ~ var2, data = _)
                   })
 
 
