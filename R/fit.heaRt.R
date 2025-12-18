@@ -71,10 +71,10 @@ fit.tReeboot <- function(obj, num_var = c("1", "2"),
   if(num_var == "1")
     mod <- switch(fit_type,
                   decision.tree = {
-                    data |> stats::rpart::rpart(y ~ var1, data = _)
+                    data |> rpart::rpart(y ~ var1, data = _)
                   },
                   logostic.reg = {
-                    data |> glm(y ~ var1, family = binomial(link = "logit"), data = _)
+                    data |> stats::glm(y ~ var1, family = binomial(link = "logit"), data = _)
                   },
                   random.forest = {
                     data |> randomForest::randomForest(y ~ var1, data = _)
