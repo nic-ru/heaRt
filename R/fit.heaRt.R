@@ -89,7 +89,8 @@ fit.tReeboot <- function(obj, num_var = c("1", "2"),
                     data |> rpart::rpart(y ~ var1 + var2, data = _)
                   },
                   logostic.reg = {
-                    data |> stats::glm(y ~ var1 + var2, family = binomial(link = "logit"), data = _)
+                    data |> stats::glm(y ~ var1 + var2, family = stats::binomial(link = "logit"),
+                                       data = _)
                   },
                   random.forest = {
                     data |> randomForest::randomForest(y ~ var1 + var2, data = _)
@@ -104,7 +105,7 @@ fit.tReeboot <- function(obj, num_var = c("1", "2"),
                     data |> rpart::rpart(y ~ var2, data = _)
                   },
                   logostic.reg = {
-                    data |> stats::glm(y ~ var2, family = binomial(link = "logit"), data = _)
+                    data |> stats::glm(y ~ var2, family = stats::binomial(link = "logit"), data = _)
                   },
                   random.forest = {
                     data |> randomForest::randomForest(y ~ var2,data = _)

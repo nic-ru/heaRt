@@ -27,12 +27,12 @@ plot.heaRt_fit <- function(x, ...){
 
   # checking if the object is either a decision tree or a random forest
   if(x$fit_type == "decision.tree")
-    return(rpart.plot:::prp(x))
+    return(rpart.plot::prp(x))
 
   # it'll print a partial plot considering always the first variable
   if(x$fit_type == "random.forest"){
     dat <- x$data
-    randomForest:::partialPlot(x, dat, var1)
+    randomForest::partialPlot(x, dat, var1)
     }
 
 
@@ -58,9 +58,9 @@ plot.heaRt_fit <- function(x, ...){
                   })
 
 
-    p <- ggplot2::ggplot(data = dat, aes(x = x, y = y, color = y)) +
+    p <- ggplot2::ggplot(data = dat, ggplot2::aes(x = x, y = y, color = y)) +
           ggplot2::geom_point() +
-          ggplot2::geom_line(data = fits, aes(x = predictor, y = pred)) +
+          ggplot2::geom_line(data = fits, ggplot2::aes(x = predictor, y = pred)) +
           ggplot2::theme(legend.position = "None")
 
     return(p)
@@ -70,11 +70,11 @@ plot.heaRt_fit <- function(x, ...){
 
     fits <- switch(x$fit_type,
                    lm = {
-                     tibble::tibble(predictor, pred=predict(x$model,
+                     tibble::tibble(predictor, pred = stats::predict(x$model,
                                                             newdata = tibble::tibble(x=predictor)))
                    },
                    logistic.reg = {
-                     tibble::tibble(predictor, pred=predict(x$model,
+                     tibble::tibble(predictor, pred = stats::predict(x$model,
                                                             newdata = tibble::tibble(x=predictor)))
                    })
 
