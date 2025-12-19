@@ -32,7 +32,7 @@ load_heaRt <- function(vars = c("a-s", "rbp-restECG", "chol-mhr"), severe_diag =
   heart_url <- "https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/processed.cleveland.data"
 
   # getting the data and organizing them in a nice way
-  heart_dat <- readr::read_csv(heart_url)
+  heart_dat <- readr::read_csv(heart_url, col_names = FALSE)
 
   colnames(heart_dat) <- c("age", "sex", "cp", "rbp", "chol", "fbs",
                              "restECG", "mhr", "eia", "oldpeak",
@@ -51,7 +51,7 @@ load_heaRt <- function(vars = c("a-s", "rbp-restECG", "chol-mhr"), severe_diag =
                           dplyr::mutate(y = dplyr::case_when(
                             diagnosis != 0 ~ 1,
                             .default = 0
-                          ))
+                          )) |>
                           dplyr::select(y, age, sex)
                       },
                       "rbp-restECG" = {
@@ -59,7 +59,7 @@ load_heaRt <- function(vars = c("a-s", "rbp-restECG", "chol-mhr"), severe_diag =
                           dplyr::mutate(y = dplyr::case_when(
                             diagnosis != 0 ~ 1,
                             .default = 0
-                          ))
+                          )) |>
                           dplyr::select(y, rbp, restECG)
                       },
                       "chol-mhr" = {
@@ -67,12 +67,12 @@ load_heaRt <- function(vars = c("a-s", "rbp-restECG", "chol-mhr"), severe_diag =
                           dplyr::mutate(y = dplyr::case_when(
                             diagnosis != 0 ~ 1,
                             .default = 0
-                          ))
+                          )) |>
                           dplyr::select(y, chol, mhr)
                       })
 
   output <- heart_dat
-  attr(output, "source") <- type
+  attr(output, "source") <- vars
   class(output) <- c("heaRt", "listof")
 
   return(output)

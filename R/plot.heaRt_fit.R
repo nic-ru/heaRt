@@ -68,6 +68,8 @@ plot.heaRt_fit <- function(x, ...){
 
   if(ncol(dat) == 3){
 
+    predictor <- pretty(x$data[[2]])
+
     fits <- switch(x$fit_type,
                    lm = {
                      tibble::tibble(predictor, pred = stats::predict(x$model,

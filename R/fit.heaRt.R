@@ -46,6 +46,8 @@ fit.heaRt <- function(obj, num_var = c("1", "2"),
   # with the param "num_var" the user can choose the number of variable in the model(up to two)
   # and with the param "consider_first" can choose if considering the first of the two or no
 
+  num_var <- match.arg(num_var)
+
   if(!inherits(obj, "heaRt"))
     stop("This function only works on objects of class \"heaRt\"")
 
@@ -63,7 +65,7 @@ fit.heaRt <- function(obj, num_var = c("1", "2"),
                    data.frame(y = y, var1 = var1, var2 = var2)})
 
   if(consider_first == FALSE)
-    data <- data |> dplyr::select(y, var2) |> dplyr::rename("var1" == "var2")
+    data <- data |> dplyr::select(y, var2) |> dplyr::rename("var1" = "var2")
   # easier to plot the random forest
 
   # fitting the model
@@ -73,7 +75,7 @@ fit.heaRt <- function(obj, num_var = c("1", "2"),
                   decision.tree = {
                     data |> rpart::rpart(y ~ var1, data = _)
                   },
-                  logostic.reg = {
+                  logistic.reg = {
                     data |> stats::glm(y ~ var1, family = stats::binomial(link = "logit"), data = _)
                   },
                   random.forest = {
@@ -88,7 +90,7 @@ fit.heaRt <- function(obj, num_var = c("1", "2"),
                   decision.tree = {
                     data |> rpart::rpart(y ~ var1 + var2, data = _)
                   },
-                  logostic.reg = {
+                  logistic.reg = {
                     data |> stats::glm(y ~ var1 + var2, family = stats::binomial(link = "logit"),
                                        data = _)
                   },
@@ -104,7 +106,7 @@ fit.heaRt <- function(obj, num_var = c("1", "2"),
                   decision.tree = {
                     data |> rpart::rpart(y ~ var2, data = _)
                   },
-                  logostic.reg = {
+                  logistic.reg = {
                     data |> stats::glm(y ~ var2, family = stats::binomial(link = "logit"), data = _)
                   },
                   random.forest = {
