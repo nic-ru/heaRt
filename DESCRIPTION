@@ -5,7 +5,7 @@ Version: 0.1.0
 Authors@R: c(
     person("Nicola", "Ruaro", email = "nicolai.ruaro@gmail.com", role = c("aut", "cre")),
     person("Anna", "Signorini", email = "", role = c("aut")),
-    person("Lucrezia", "Bonifazi", email = "", role = c("aut"))
+    person("Lucrezia", "Bonifazi", email = "lucrezia.bonifazi.2026@mumail.ie", role = c("aut"))
   )
 Description: This package can load data about the diagnosies of heart diseases and the results of the
     medical exams conducted on some patient.
