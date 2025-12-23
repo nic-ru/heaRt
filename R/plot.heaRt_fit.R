@@ -12,7 +12,7 @@
 #'
 #' @importFrom ggplot2 "ggplot" "geom_point" "geom_line" "theme" "aes"
 #' @importFrom dplyr "mutate"
-#' @importFrom rpart "prp"
+#' @importFrom rpart.plot "prp"
 #' @importFrom randomForest "partialPlot"
 #' @importFrom tibble "tibble"
 #' @importFrom stats "predict"
