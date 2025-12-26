@@ -25,3 +25,7 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.3.3
 Date: 2025-12-26
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
