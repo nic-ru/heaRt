@@ -37,7 +37,7 @@ plot.heaRt_fit <- function(x, ...){
   # it'll print a partial plot considering always the first variable
   if(x$fit_type == "random.forest"){
     dat <- x$data
-    randomForest::partialPlot(x, dat, var1)
+    randomForest::partialPlot(x$model, dat, var1)
     }
 
 
