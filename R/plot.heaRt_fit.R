@@ -41,30 +41,32 @@ plot.heaRt_fit <- function(x, ...){
     }
 
 
-  # checking with how many variables we are working
+  # checking how many variables are we working with
 
   dat <- x$data
 
   if(ncol(dat) == 2) {
-    dat <- dat |>
-      dplyr::mutate(x = dat[[2]])
+    names(dat)[2] <- "x"
+    #dat <- dat |>
+     # dplyr::rename(x = dat[[2]])
 
-    predictor <- pretty(x$data[[2]])
+    predictor <- as.numeric(pretty(dat$x))
 
     fits <- switch(x$fit_type,
                   lm = {
-                    tibble::tibble(predictor, pred = stats::predict(x$model,
-                                                           newdata = tibble::tibble(x=predictor)))
+                    tibble::tibble(x = predictor, pred = as.numeric(stats::predict(x$model,
+                                                                    newdata = tibble::tibble(x=predictor))))
                   },
                   logistic.reg = {
-                    tibble::tibble(predictor, pred = stats::predict(x$model,
-                                                           newdata = tibble::tibble(x=predictor)))
+                    tibble::tibble(x = predictor, pred = as.numeric(stats::predict(x$model,
+                                                                    newdata = tibble::tibble(x=predictor),
+                                                                    type = "response")))
                   })
 
 
     p <- ggplot2::ggplot(data = dat, ggplot2::aes(x = x, y = y, color = y)) +
           ggplot2::geom_point() +
-          ggplot2::geom_line(data = fits, ggplot2::aes(x = predictor, y = pred)) +
+          ggplot2::geom_line(data = fits, ggplot2::aes(x = x, y = pred)) +
           ggplot2::theme(legend.position = "None")
 
     return(p)
