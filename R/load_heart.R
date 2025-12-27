@@ -32,7 +32,7 @@ load_heaRt <- function(vars = c("a-s", "rbp-restECG", "chol-mhr"), severe_diag =
   heart_url <- "https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/processed.cleveland.data"
 
   # getting the data and organizing them in a nice way
-  heart_dat <- readr::read_csv(heart_url, col_names = FALSE)
+  heart_dat <- readr::read_csv(heart_url, col_names = FALSE, na = "?")
 
   colnames(heart_dat) <- c("age", "sex", "cp", "rbp", "chol", "fbs",
                              "restECG", "mhr", "eia", "oldpeak",
@@ -73,7 +73,7 @@ load_heaRt <- function(vars = c("a-s", "rbp-restECG", "chol-mhr"), severe_diag =
 
   output <- heart_dat
   attr(output, "source") <- vars
-  class(output) <- c("heaRt", "listof")
+  class(output) <- c("heaRt", class(output))
 
   return(output)
 
