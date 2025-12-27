@@ -140,7 +140,7 @@ fit.heaRt <- function(obj, num_var = c("1", "2"),
 
   class(output) <- c("heaRt_fit",
                      class(mod),
-                     "listof")
+                     "list")
 
   invisible(output)
 
