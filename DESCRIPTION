@@ -1,16 +1,16 @@
 Package: heaRt
 Type: Package
-Title: Load and analyze with machine learning algorithms some data about heart diseases in some patient
+Title: Load and analyse heart disease clinical data
 Version: 0.1.0
 Authors@R: c(
     person("Nicola", "Ruaro", email = "nicolai.ruaro@gmail.com", role = c("aut", "cre")),
     person("Lucrezia", "Bonifazi", email = "lucrezia.bonifazi.2026@mumail.ie", role = c("aut")),
     person("Anna", "Signorini", email = "anna.signorini.2026@mumail.ie", role = c("aut"))
     )
-Description: This package can load data about the diagnoses of heart diseases and the results of the
-    medical exams conducted on some patient.
-    The user can then decide to fit some model with the data that he loaded and then plot them with plot
-    function in the packege.
+Description:  This package provides tools to load and analyse clinical data related to heart disease 
+              diagnoses and patient medical examinations. Users can fit different statistical and 
+              machine learning models to the data and visualise the results using dedicated plotting 
+              functions.
 License: GPL (>= 3)
 Depends: R (>= 4.5.0)
 Imports: 
