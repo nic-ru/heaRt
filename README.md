@@ -49,10 +49,11 @@ pak::pak("nic-ru/heaRt")
 
 ## Example
 
-This is a basic example which shows how to fit a logistic regression model to clinical heart disease 
-data using resting blood pressure and resting ECG measurements:
+This is a basic example which shows how to fit a logistic regression
+model to clinical heart disease data using resting blood pressure and
+resting ECG measurements:
 
-```{r example}
+``` r
 library(heaRt)
 # modificare quando funziona
 #model <- fit(
@@ -62,12 +63,14 @@ library(heaRt)
 #)
 ```
 
-Note that the data are dynamically obtained from the UCI Machine Learning Repository, 
-hence the need for `load_heaRt()` to always access the original clinical dataset.
+Note that the data are dynamically obtained from the UCI Machine
+Learning Repository, hence the need for `load_heaRt()` to always access
+the original clinical dataset.
 
-Subsequently, a graphical representation of the fitted model can be created:
+Subsequently, a graphical representation of the fitted model can be
+created:
 
-```{r example}
+``` r
 # chimare il modello come quelllo della vignetta
 #p <- plot(model)
 ```
