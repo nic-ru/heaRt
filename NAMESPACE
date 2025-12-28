@@ -2,6 +2,7 @@
 
 S3method(fit,heaRt)
 S3method(plot,heaRt_fit)
+export(fit)
 export(load_heaRt)
 importFrom(dplyr,"filter")
 importFrom(dplyr,"mutate")
