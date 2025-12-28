@@ -248,7 +248,7 @@ plot(mod_lm2)
 plot(mod_log2)
 ```
 
-#### decision tree and random forest
+#### Decision tree and random forest
 
 ```{r}
 plot(mod_tree2)
