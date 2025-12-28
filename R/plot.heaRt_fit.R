@@ -47,7 +47,9 @@ plot.heaRt_fit <- function(x, ...){
 
   if(ncol(dat) == 2) {
 
-    predictor <- dat$var1
+    predictor <- seq(min(dat$var1, na.rm = TRUE),
+                     max(dat$var1, na.rm = TRUE),
+                     length.out = length(dat$var1))
 
     fits <- switch(x$fit_type,
                   lm = {
@@ -71,7 +73,7 @@ plot.heaRt_fit <- function(x, ...){
 
   if(ncol(dat) == 3){
 
-    predictor <- dat$var1
+    predictor <- pretty(dat$var1)
 
     fits <- switch(x$fit_type,
                    lm = {
