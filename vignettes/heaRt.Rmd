@@ -140,25 +140,27 @@ Additional classes corresponding to the underlying model (e.g. `"rpart"` or `"ra
 
 #### Example: fitting different models
 
-```{r}
-# questo è un esempio modificare blabla 
+```{r, warning=FALSE}
 mod_tree <- fit(dat, num_var = "2", fit_type = "decision.tree")
+
 mod_rf   <- fit(dat, num_var = "2", fit_type = "random.forest")
+
 mod_lm   <- fit(dat, num_var = "1", fit_type = "lm")
+
 mod_log  <- fit(dat, num_var = "2", fit_type = "logistic.reg", 
                 consider_first = FALSE)
+```
 
+#### Common mistakes avoided by heaRt
 
-# CONTROLLARE
-## Common mistakes avoided by heaRt
+This would normally require manual formula specification:
+`glm(y ~ rbp + restECG, family = binomial)`
 
-# This would normally require manual formula specification:
-# glm(y ~ rbp + restECG, family = binomial)
+With heaRt, the structure is applied automatically:
 
-# With heaRt, the structure is enforced automatically:
+```{r}
 dat <- load_heaRt("rbp-restECG")
 mod <- fit(dat, num_var = "2", fit_type = "logistic.reg")
-
 ```
 
 Each call returns an object of class "heaRt_fit", which stores:
@@ -179,8 +181,7 @@ The `plot()` method for `heaRt_fit` objects automatically adapts the type of vis
 
 For decision tree models, `plot()` produces a graphical representation of the tree structure, showing the decision rules used to classify patients.
 
-```{r}
-# questo è un esempio modificare blabla 
+```{r, fig.width=5, fig.height=5}
 plot(mod_tree)
 ```
 
@@ -190,8 +191,7 @@ This plot helps interpret how clinical variables are used to split patients into
 
 For random forest models, `plot(`) displays a partial dependence plot for the first predictor. This plot shows the marginal effect of a predictor on the predicted probability of heart disease, averaging over the remaining variables.
 
-```{r}
-# questo è un esempio modificare blabla 
+```{r, fig.width=7, fig.height=7}
 plot(mod_rf)
 ```
 
@@ -209,8 +209,7 @@ When a single predictor is used, the plot shows:
 
 -   the fitted regression curve.
 
-```{r}
-# questo è un esempio modificare blabla 
+```{r, fig.width=6, fig.height=6}
 plot(mod_lm)
 ```
 
@@ -220,8 +219,7 @@ For logistic regression, the fitted curve represents the estimated probability o
 
 When two predictors are used, the data are displayed in the two-dimensional predictor space, with the fitted relationship overlaid.
 
-```{r}
-# questo è un esempio modificare blabla 
+```{r, fig.width=6, fig.height=6}
 plot(mod_log)
 ```
 
@@ -229,13 +227,10 @@ plot(mod_log)
 
 #### lm and logistic regression
 
-```{r}
-# LALALA CONTROLLARE
-## Comparing different models
+One of the advantages of heaRt is that different models can be fitted
+to the same data with minimal changes to the code.
 
-#One of the advantages of heaRt is that different models can be fitted
-#to the same data with minimal changes to the code.
-
+```{r, fig.width=6, fig.height=6}
 dat <- load_heaRt("a-s")
 
 mod_lm2  <- fit(dat, "2", "lm")
@@ -250,8 +245,11 @@ plot(mod_log2)
 
 #### Decision tree and random forest
 
-```{r}
+```{r, fig.width=5, fig.height=5}
 plot(mod_tree2)
+```
+
+```{r, fig.width=7, fig.height=7}
 plot(mod_rf2)
 ```
 
