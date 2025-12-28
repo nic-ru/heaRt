@@ -1,7 +1,7 @@
 Package: heaRt
 Type: Package
 Title: Load and analyse heart disease clinical data
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: c(
     person("Nicola", "Ruaro", email = "nicolai.ruaro@gmail.com", role = c("aut", "cre")),
     person("Lucrezia", "Bonifazi", email = "lucrezia.bonifazi.2026@mumail.ie", role = c("aut")),
