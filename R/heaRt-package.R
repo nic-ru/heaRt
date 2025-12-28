@@ -4,7 +4,7 @@
 #' clinical data related to heart disease diagnoses.
 #'
 #'
-#' @section Main functions:?
+#' @section Main functions:
 #' \describe{
 #'   \item{\code{\link{load_heaRt}}}{Load and preprocess heart disease clinical data}
 #'   \item{\code{\link{fit}}}{Fit statistical and machine learning models}

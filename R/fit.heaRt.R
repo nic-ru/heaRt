@@ -8,19 +8,19 @@
 #' The function is implemented as an S3 generic, with a dedicated method
 #' for objects of class \code{"heaRt"}.
 #'
-#' @param obj An object of class \code{heaRt}
+#' @param obj An object of class \code{heaRt}.
 #'
-#' @param num_var The number of variable the function will consider when fitting the model, either
-#' 1 or 2.
+#' @param num_var The number of variable the function will consider when
+#' fitting the model, either 1 or 2.
 #'
-#' @param fit_type The type of algorithm requested, either decision tree (\code{"decision.tree"}),
-#' logistic regression (\code{"logistic.reg"}), random forest (\code{"random.forest"}) or
-#' linear model (\code{"lm"}).
+#' @param fit_type The type of algorithm requested, either decision tree
+#' (\code{"decision.tree"}), logistic regression (\code{"logistic.reg"}),
+#' random forest (\code{"random.forest"}) or linear model (\code{"lm"}).
 #'
-#' @param consider_first The option of considering the first of the two variables, either
-#' \code{"TRUE"} or \code{"FALSE"}, defaults to \code{"TRUE"}.
+#' @param consider_first The option of considering the first of the two
+#' variables, either \code{"TRUE"} or \code{"FALSE"}, defaults to \code{"TRUE"}.
 #'
-#' @param ... Catches unused arguments to \code{fit},
+#' @param ... Catches unused arguments to \code{fit}.
 #'
 #' @returns An object of class \code{"heaRt_fit"} which includes the model details
 #' as well as the data set and \code{fit_type} used.
@@ -28,8 +28,10 @@
 #' @note A dedicated \code{\link[=plot.heaRt_fit]{plot}} method is provided
 #' for objects of class \code{"heaRt_fit"}.
 #'
-#' @seealso @seealso \code{\link[=load_heaRt]{load_heaRt}}, \code{\link[=plot.heaRt_fit]{plot.heaRt_fit}},
-#' \code{\link[stats]{lm}}, \code{\link[rpart]{rpart}}, \code{\link[stats]{glm}}, \code{\link[randomForest]{randomForest}}
+#' @seealso \code{\link[=load_heaRt]{load_heaRt}},
+#' \code{\link[=plot.heaRt_fit]{plot.heaRt_fit}}, \code{\link[stats]{lm}},
+#' \code{\link[rpart]{rpart}}, \code{\link[stats]{glm}},
+#' \code{\link[randomForest]{randomForest}}
 #'
 #' @export
 #'
@@ -65,7 +67,7 @@ fit.heaRt <- function(obj, num_var = c("1", "2"),
   num_var <- match.arg(num_var)
 
   # choosing the type of fitting model
-  fit_type = match.arg(fit_type)
+  fit_type <- match.arg(fit_type)
 
   y <- obj$y
   var1 <- obj[[2]]

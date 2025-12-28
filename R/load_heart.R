@@ -1,19 +1,21 @@
 #' Load medical data for heart disease diagnosis
 #'
-#' Loads and preprocesses clinical data from medical examinations performed on patients,
-#' with the aim of predicting the presence of heart disease and distinguishing between
-#' mild and severe diagnoses.
+#' Loads and preprocesses clinical data from medical examinations performed on
+#' patients, with the aim of predicting the presence of heart disease and
+#' distinguishing between mild and severe diagnoses.
 #'
-#' @param vars Either \code{"a-s"}, \code{"rbp-restECG"} or \code{"chol-mhr"} for age(1=M, 0=F)-sex,
-#' resting blood pressure-resting ECG and serum cholesterol-maximum heart rate.
+#' @param vars Either \code{"a-s"}, \code{"rbp-restECG"} or \code{"chol-mhr"}
+#' for age(1=M, 0=F)-sex, resting blood pressure-resting ECG and serum
+#' cholesterol-maximum heart rate.
 #'
 #' @param severe_diag Either \code{"TRUE"} or \code{"FALSE"}, to select the severe
 #' diagnosis or the normal diagnosis. Defaults to \code{"FALSE"}.
 #'
-#' @returns An object of class \code{"heaRt"} which is a list of the chosen variables and the results
-#' of the diagnosis (1 = positive, 0 = negative)
+#' @returns An object of class \code{"heaRt"} which is a list of the chosen
+#' variables and the results of the diagnosis (1 = positive, 0 = negative).
 #'
-#' @note A dedicated \code{\link[=fit]{fit}} function is provided for objects of class \code{"heaRt"}.
+#' @note A dedicated \code{\link[=fit]{fit}} function is provided for objects
+#' of class \code{"heaRt"}.
 #'
 #' @export
 #'
@@ -23,8 +25,10 @@
 #' @seealso \code{\link[=fit]{fit}}, \code{\link[=plot.heaRt_fit]{plot.heaRt_fit}}
 #'
 #' @examples
+#' library(heaRt)
 #' dat <- load_heaRt(vars = "rbp-restECG", severe_diag = TRUE)
-load_heaRt <- function(vars = c("a-s", "rbp-restECG", "chol-mhr"), severe_diag = FALSE){
+load_heaRt <- function(vars = c("a-s", "rbp-restECG", "chol-mhr"),
+                       severe_diag = FALSE){
 
   # the user can choose which of variables he wants to analyze from the original data
 

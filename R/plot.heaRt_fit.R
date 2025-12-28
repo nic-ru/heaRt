@@ -1,14 +1,15 @@
 #' Plot heaRt output
 #'
-#' Plot the different type of model from symptoms related to the diagnosis of heart disease
+#' Plot the different type of model from symptoms related to the diagnosis
+#' of heart disease.
 #'
 #' @param x An abject of class \code{"heaRt_fit"}.
 #'
-#' @param ... Catches unused arguments to \code{plot}
+#' @param ... Catches unused arguments to \code{plot}.
 #'
-#' @returns Either a ggplot, a prp plot or partial plot
+#' @returns Either a ggplot, a prp plot or partial plot.
 #'
-#' @method plot heaRt_fit
+#' @method plot heaRt_fit.
 #' @export
 #'
 #' @export
@@ -51,11 +52,13 @@ plot.heaRt_fit <- function(x, ...){
 
     fits <- switch(x$fit_type,
                   lm = {
-                    tibble::tibble(var1 = predictor, pred = as.numeric(stats::predict(x$model,
+                    tibble::tibble(var1 = predictor,
+                                   pred = as.numeric(stats::predict(x$model,
                                                                     newdata = tibble::tibble(var1=predictor))))
                   },
                   logistic.reg = {
-                    tibble::tibble(var1 = predictor, pred = as.numeric(stats::predict(x$model,
+                    tibble::tibble(var1 = predictor,
+                                   pred = as.numeric(stats::predict(x$model,
                                                                     newdata = tibble::tibble(var1=predictor),
                                                                     type = "response")))
                   })
@@ -75,12 +78,14 @@ plot.heaRt_fit <- function(x, ...){
 
     fits <- switch(x$fit_type,
                    lm = {
-                     tibble::tibble(var1 = predictor, pred = as.numeric(stats::predict(x$model,
+                     tibble::tibble(var1 = predictor,
+                                    pred = as.numeric(stats::predict(x$model,
                                                             newdata = tibble::tibble(var1=predictor,
                                                                                      var2=mean(dat$var2)))))
                    },
                    logistic.reg = {
-                     tibble::tibble(var1 = predictor, pred = as.numeric(stats::predict(x$model,
+                     tibble::tibble(var1 = predictor,
+                                    pred = as.numeric(stats::predict(x$model,
                                                             newdata = tibble::tibble(var1=predictor,
                                                                                      var2=mean(dat$var2)),
                                                             type = "response")))
