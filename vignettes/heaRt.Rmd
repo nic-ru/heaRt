@@ -42,7 +42,7 @@ Throughout this vignette, we will guide the reader through a complete workflow, 
 Once in R you can type at the R command prompt:
 
 ```{r, eval=FALSE}
-install.packages('devtools')
+# install.packages('devtools')
 devtools::install_github('nic-ru/heaRt')
 ```
 
@@ -243,7 +243,7 @@ plot(mod_lm2)
 plot(mod_log2)
 ```
 
-#### decision tree and random forest
+#### Decision tree and random forest
 
 ```{r, fig.width=5, fig.height=5}
 plot(mod_tree2)
