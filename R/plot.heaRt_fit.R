@@ -28,8 +28,6 @@
 #' plot(mod1)
 #' plot(mod2)
 #' }
-
-
 plot.heaRt_fit <- function(x, ...){
 
   # checking if the object is either a decision tree or a random forest
