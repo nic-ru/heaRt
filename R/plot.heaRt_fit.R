@@ -27,7 +27,6 @@
 #' mod2 <- fit(dat, num_var = "2", fit_type = "logistic.reg", consider_first = FALSE)
 #' plot(mod1)
 #' plot(mod2)
-#'
 plot.heaRt_fit <- function(x, ...){
 
   # Checking if the object is a decision tree or a random forest
