@@ -22,7 +22,7 @@
 #' @importFrom dplyr "filter" "mutate" "select"
 #' @importFrom readr "read_csv"
 #'
-#' @seealso \code{\link[=fit.heaRt]{fit}}, \code{\link[=plot.heaRt_fit]{plot.heaRt_fit}}
+#' @seealso \code{\link[=fit]{fit}}, \code{\link[=plot.heaRt_fit]{plot.heaRt_fit}}
 #'
 #' @examples
 #' library(heaRt)
